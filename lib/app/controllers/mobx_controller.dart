@@ -50,4 +50,8 @@ abstract class MobxControllerBase with Store {
   changeLastName(String newLastName) {
     lastName = newLastName;
   }
+
+  dispose(){
+    
+  }
 }
