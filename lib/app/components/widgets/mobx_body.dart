@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:get_it/get_it.dart';
 import 'package:playground/app/controllers/client_controller.dart';
 import 'package:playground/app/controllers/mobx_controller.dart';
 import 'package:provider/provider.dart';
@@ -20,8 +21,13 @@ class MobxBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = Provider.of<MobxController>(context);
-    final clientController = Provider.of<ClientController>(context);
+    // Provider
+    // final controller = Provider.of<MobxController>(context);
+    // final clientController = Provider.of<ClientController>(context);
+
+    // GetIt
+    final controller = GetIt.I.get<MobxController>();
+    final clientController = GetIt.I.get<ClientController>();
     return SingleChildScrollView(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,

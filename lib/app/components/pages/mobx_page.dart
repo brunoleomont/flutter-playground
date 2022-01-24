@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
 import 'package:playground/app/components/widgets/mobx_body.dart';
 import 'package:playground/app/controllers/mobx_controller.dart';
 import 'package:provider/provider.dart';
@@ -13,7 +14,8 @@ class MobxPage extends StatefulWidget {
 class _MobxPageState extends State<MobxPage> {
   @override
   Widget build(BuildContext context) {
-  final controller = Provider.of<MobxController>(context);
+  // final controller = Provider.of<MobxController>(context);
+  final controller = GetIt.I.get<MobxController>();
     return Scaffold(
       appBar: AppBar(
         title: Text('Mobx'),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
 import 'package:playground/app/components/pages/mobx_page.dart';
 import 'package:playground/app/components/pages/todo_page.dart';
 import 'package:playground/app/controllers/app_controller.dart';
@@ -6,39 +7,45 @@ import 'package:playground/app/controllers/client_controller.dart';
 import 'package:playground/app/controllers/mobx_controller.dart';
 import 'package:playground/app/models/counter.dart';
 import 'package:playground/app/components/pages/login_page.dart';
-import 'package:provider/provider.dart';
+// import 'package:provider/provider.dart';
 
 void main() {
+  GetIt getIt = GetIt.I;
+  getIt.registerSingleton<MobxController>(MobxController());
+  getIt.registerSingleton<ClientController>(ClientController());
   runApp(MyApp());
 }
+
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AnimatedBuilder(
         animation: AppController.instance,
         builder: (context, child) {
-          return MultiProvider(
-            providers: [
-              Provider<MobxController>(create: (_) => MobxController(), dispose: (_, controller) => controller.dispose,),
-              Provider<ClientController>(create: (_) => ClientController())
-            ],
-            child: MaterialApp(
-                title: 'Flutter Playground',
-                theme: ThemeData(
-                    primarySwatch: Colors.blue,
-                    brightness: AppController.instance.isDarkTheme
-                        ? Brightness.dark
-                        : Brightness.light),
-                // home: MyHomePage('Flutter Playground'),
-                // home: LoginPage()
-                initialRoute: 'home',
-                routes: {
-                  '/': (context) => LoginPage(),
-                  'home': (context) => MyHomePage('My homepage'),
-                  'todo': (context) => TodoPage(),
-                  'mobx-page': (context) => MobxPage()
-                }),
-          );
+          return
+              // MultiProvider(
+              //   providers: [
+              //     Provider<MobxController>(create: (_) => MobxController(), dispose: (_, controller) => controller.dispose,),
+              //     Provider<ClientController>(create: (_) => ClientController())
+              //   ],
+              //   child:
+              MaterialApp(
+                  title: 'Flutter Playground',
+                  theme: ThemeData(
+                      primarySwatch: Colors.blue,
+                      brightness: AppController.instance.isDarkTheme
+                          ? Brightness.dark
+                          : Brightness.light),
+                  // home: MyHomePage('Flutter Playground'),
+                  // home: LoginPage()
+                  initialRoute: 'home',
+                  routes: {
+                '/': (context) => LoginPage(),
+                'home': (context) => MyHomePage('My homepage'),
+                'todo': (context) => TodoPage(),
+                'mobx-page': (context) => MobxPage()
+              });
+          //);
         });
   }
 }
