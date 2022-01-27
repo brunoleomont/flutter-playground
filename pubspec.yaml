@@ -33,6 +33,7 @@ dependencies:
   flutter_mobx: ^2.0.3+2
   provider:
   get_it:
+  rxdart:
 
 dev_dependencies:
   flutter_test:

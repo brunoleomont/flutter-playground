@@ -31,10 +31,15 @@ class _ObservableListPageState extends State<ObservableListPage> {
           ],
         ),
         body: Observer(builder: (_) {
+          if (controller.output!.data == null) {
+            return Center(
+              child: CircularProgressIndicator(),
+            );
+          }
           return ListView.builder(
-              itemCount: controller.listFiltred.length,
+              itemCount: controller.output!.data.length,
               itemBuilder: (_, index) {
-                var item = controller.listFiltred[index];
+                var item = controller.output!.data[index];
                 return ObservableListItem(null, item, () {
                   controller.removeItem(item);
                 });
