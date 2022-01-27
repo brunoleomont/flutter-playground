@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:playground/app/components/pages/mobx_page.dart';
+import 'package:playground/app/components/pages/observable_list_page.dart';
 import 'package:playground/app/components/pages/todo_page.dart';
+import 'package:playground/app/components/widgets/observable_list_dialog.dart';
 import 'package:playground/app/controllers/app_controller.dart';
 import 'package:playground/app/controllers/client_controller.dart';
 import 'package:playground/app/controllers/mobx_controller.dart';
@@ -43,7 +45,9 @@ class MyApp extends StatelessWidget {
                 '/': (context) => LoginPage(),
                 'home': (context) => MyHomePage('My homepage'),
                 'todo': (context) => TodoPage(),
-                'mobx-page': (context) => MobxPage()
+                'mobx-page': (context) => MobxPage(),
+                'observable-list': (context) => ObservableListPage(),
+                'observable-list-dialog': (context) => ObservableListDialog(),
               });
           //);
         });
@@ -137,7 +141,12 @@ class _MyHomePageState extends State<MyHomePage> {
               onPressed: () {
                 Navigator.pushNamed(context, 'mobx-page');
               },
-              child: Text('Mobx Page'))
+              child: Text('Mobx Page')),
+          ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, 'observable-list');
+              },
+              child: Text('ObservableList'))
         ],
       ),
     );
