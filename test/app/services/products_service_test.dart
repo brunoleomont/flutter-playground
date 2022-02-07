@@ -10,7 +10,7 @@ class RequestMock extends Mock implements RequestOptions {}
 
 void main() {
   final dioMock = DioMock();
-  final service = ProductsService(dio: dioMock);
+  final service = ProductsService(dioMock);
 
   final jsonResponse = jsonDecode(r'''
   [

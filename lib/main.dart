@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:playground/app/components/pages/mobx_page.dart';
 import 'package:playground/app/components/pages/observable_list_page.dart';
+import 'package:playground/app/components/pages/products_page.dart';
 import 'package:playground/app/components/pages/todo_page.dart';
 import 'package:playground/app/components/widgets/observable_list_dialog.dart';
 import 'package:playground/app/controllers/app_controller.dart';
@@ -48,6 +49,7 @@ class MyApp extends StatelessWidget {
                 'mobx-page': (context) => MobxPage(),
                 'observable-list': (context) => ObservableListPage(),
                 'observable-list-dialog': (context) => ObservableListDialog(),
+                'products': (context) => ProductPage(),
               });
           //);
         });
