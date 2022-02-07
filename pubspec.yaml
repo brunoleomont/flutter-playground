@@ -34,6 +34,8 @@ dependencies:
   provider:
   get_it:
   rxdart:
+  dartion:
+  mocktail: ^0.2.0
 
 dev_dependencies:
   flutter_test:
