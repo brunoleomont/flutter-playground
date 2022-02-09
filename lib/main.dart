@@ -148,7 +148,12 @@ class _MyHomePageState extends State<MyHomePage> {
               onPressed: () {
                 Navigator.pushNamed(context, 'observable-list');
               },
-              child: Text('ObservableList'))
+              child: Text('ObservableList')),
+          ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, 'products');
+              },
+              child: Text('Products'))
         ],
       ),
     );
